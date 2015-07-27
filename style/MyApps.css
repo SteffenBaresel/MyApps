@@ -1,0 +1,275 @@
+body {
+ font-family: Arial;
+ font-size: 12px;
+ color: #423939;
+}
+
+.default {
+ background-color: #dedede;
+}
+
+.editor {
+ background-color: #F3F781;
+}
+
+#main {
+ margin-left: 25px;
+ margin-right: 25px;
+ margin-bottom: 25px;
+ float: left;
+ margin-left: 0;
+ margin-right: 0;
+ margin-top: 0px;
+ margin-bottom: 0;
+ text-align: center;
+ display: block;
+}
+
+#main div#app {
+ display: inline-block;
+}
+
+#main div {
+ float: left;
+ width: 150px;
+ height: 150px;
+ border: 5px solid #d0d0d0;
+ padding: 5px;
+ margin: 5px;
+ background-color: #f0f0f0;
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-size: 100px 100px;
+ border-radius: 15px;
+ z-index: 1;
+}
+
+#main div:hover {
+ border: 5px solid #423939;
+ cursor: pointer;
+ color: #000;
+ -webkit-box-shadow: 0px 0px 10px #423939;
+ -moz-box-shadow: 0px 0px 10px #423939;
+ box-shadow: 0px 0px 10px #423939;
+ background-color: #f8f8f8;
+ z-index: 1;
+}
+
+#main div#app>span:first-child {
+ margin-left: 0px;
+ margin-top: 130px;
+ width: 150px;
+ text-align: center;
+ border: none;
+ display: block;
+ overflow: hidden;
+}
+
+#header {
+ height: 50px;
+ font-size: 24px;
+ text-align: left;
+ margin-top: 35px;
+ margin-left: 43px;
+}
+
+#footer {
+ float: left;
+ font-size: 10px;
+ margin-top: 50px;
+ margin-left: 0px;
+ text-align: center;
+ width: 100%;
+ padding-bottom: 10px;
+}
+
+#button {
+ left: 25px;
+ position: absolute;
+ display: block;
+ top: 590px;
+}
+
+#button button {
+ display: block;
+ width: 200px;
+ height: 50px;
+ border: 8px solid #d0d0d0;
+ padding: 8px;
+ margin: 5px;
+ background-color: #f0f0f0;
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-size: 150px 150px;
+ border-radius: 15px;
+}
+
+#button button:hover {
+ border: 8px solid #423939;
+ cursor: pointer;
+ color: #000;
+ -webkit-box-shadow: 0px 0px 10px #423939;
+ -moz-box-shadow: 0px 0px 10px #423939;
+ box-shadow: 0px 0px 10px #423939;
+ background-color: #f8f8f8;
+}
+
+#setup {
+ position: absolute;
+ left: 25px;
+ top: 50px;
+ bottom: 0;
+ display: block;
+ width: 500px;
+ height: 500px;
+ border: 8px solid #d0d0d0;
+ padding: 8px;
+ margin: 5px;
+ background-color: #f0f0f0;
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-size: 150px 150px;
+ border-radius: 15px;
+}
+
+#setup #setup2 {
+ display: block;
+ width: 485px;
+ height: 280px;
+ overflow-y: auto;
+ overflow-x: auto;
+ padding: 8px;
+}
+
+#add {
+ float: left;
+ margin-left: 10px;
+ margin-top: 10px;
+}
+
+#add button {
+ height: 50px;
+ border: 5px solid #d0d0d0;
+ padding: 5px;
+ margin: 5px;
+ background-color: #f0f0f0;
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-size: 150px 150px;
+ border-radius: 15px;
+}
+
+#add button:hover {
+ border: 5px solid #423939;
+ cursor: pointer;
+ color: #000;
+ -webkit-box-shadow: 0px 0px 10px #423939;
+ -moz-box-shadow: 0px 0px 10px #423939;
+ box-shadow: 0px 0px 10px #423939;
+ background-color: #f8f8f8;
+}
+
+fieldset {
+ border: none;
+}
+
+fieldset label {
+ padding: 7px;
+ margin: 6px;
+ float: left;
+}
+
+.ma-ui-corner-all {
+ border: 1px solid #423939;
+ border-radius: 15px;
+ padding: 7px;
+ margin: 5px;
+ float: right;
+ width: 250px;
+}
+
+div#deldiv {
+ width: 160px;
+ height: 160px;
+ border: none;
+ z-index: 5000;
+ opacity: 0;
+ filter:Alpha(Opacity=0);
+ background-color: #d0d0d0;
+ margin-left: -175px;
+}
+
+div#deldiv:hover {
+ border: none;
+ -webkit-box-shadow: none;
+ -moz-box-shadow: none;
+ box-shadow: none;
+ opacity: 0.5;
+ filter:Alpha(Opacity=50);
+ background-color: #423939;
+}
+
+span#deletes {
+ margin-top: 3px;
+ margin-left: 195px;
+}
+
+span#deletes:hover {
+ cursor: pointer;
+}
+
+.hide {
+ display: none;
+}
+
+.show {
+ display: inline-block;
+}
+
+#searchcontrol {
+ position: absolute;
+ top: 25px;
+ left: 0px;
+ width: 100%;
+ text-align: center;
+ display: none;
+}
+
+/* Mobile Devices */
+
+@media only screen and (max-device-width: 480px) {
+    body {
+     font-size: 36px;
+     font-weight: bold;
+    }
+
+    #main div {
+     width: 400px;
+     height: 400px;
+     background-size: 280px 280px;
+     border-radius: 30px;
+    }
+
+    #main div#app>span:first-child {
+     margin-top: 350px;
+     width: 400px;
+    }
+
+    #header {
+     font-size: 46px;
+     margin-top: 25px;
+    }
+
+    #footer {
+     display: none;
+    }
+
+    #main {
+     top: 100px;
+    }
+
+    #add {
+     display: none;
+    }
+}
+
