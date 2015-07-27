@@ -5,6 +5,9 @@
 # c2015 Steffen Baresel       #
 ###############################
 #
+$config['VERSION'] 	= 'Version 2.0';
+$config['BUILD'] 	= 'Build 2015.07';
+#
 # Database Configruation
 #
 # First create MySQL Database:
@@ -16,11 +19,11 @@
 # - flush privileges;
 # - exit;
 #
-$config['dbhost'] = '127.0.0.1';
-$config['dbport'] = '3306';
-$config['dbname'] = 'MyApps';
-$config['dbuser'] = 'myapps';
-$config['dbpass'] = 'myapps';
+$config['dbhost'] 	= '127.0.0.1';
+$config['dbport'] 	= '3306';
+$config['dbname'] 	= 'MyApps';
+$config['dbuser'] 	= 'myapps';
+$config['dbpass'] 	= 'myapps';
 #
 # End of File
 #

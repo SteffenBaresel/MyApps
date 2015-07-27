@@ -10,7 +10,7 @@ if ($conn->connect_errno) {
     die('MySQL Datenbank Verbindung schlug fehl (' . $conn->connect_errno . '): '. $conn->connect_error .' Bitte &uuml;berpr&uuml;fen Sie ob eine MySQL Datenbank auf dem Host: '. $config['dbhost'] . ' gestartet ist oder ob die Datenbank: '. $config['dbname'] .' installiert wurde.<br>');
 }
 
-if (!($stmt = $conn->prepare("select * from MyAppsTable"))) {
+if (!($stmt = $conn->prepare("select ID,DSC,URL,ICON from MyAppsTable order by DSC asc"))) {
     header("Location: setup/setup.php");
     exit;
 }
@@ -231,7 +231,7 @@ echo "
    </form>
   </div>
 
-  <div id='header'>My Apps</div><div id='searchcontrol'>Loading</div>
+  <div id='header'>My Apps</div><div id='versioncontrol'>". $config['VERSION'] ."</div><div id='searchcontrol'><input type=text placeholder='". $lang['search-app'] ."' autofocus tabindex=1/></div>
   <div id='main'>";
 
 $out_id = NULL;
@@ -242,8 +242,11 @@ if (!$stmt->bind_result($out_id, $out_dsc, $out_url, $out_icn)) {
     echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 }
 
+$tid = 1;
+
 while ($stmt->fetch()) {
-    echo "<div id='app' class='app". $out_id ."' onclick='window.open(\"". $out_url ."\", \"_blank\");' style='background-image: url(\"". $out_icn ."\");'><span>". $out_dsc ."</span></div><div id='deldiv' class='hide del". $out_id ."' onclick=\"editapp('". $out_id ."');\" title='". $lang['title-delete'] ."'></div>";
+    echo "<div id='app' tabindex='". $tid ."' class='app". $out_id ."' onkeypress='{if (event.keyCode==13) { window.open(\"". $out_url ."\", \"_blank\"); } }' onclick='window.open(\"". $out_url ."\", \"_blank\");' style='background-image: url(\"". $out_icn ."\");'><span>". $out_dsc ."</span></div><div id='deldiv' class='hide del". $out_id ."' onclick=\"editapp('". $out_id ."');\" title='". $lang['title-delete'] ."'></div>";
+    $tid++;
 }
 
 echo "  </div>

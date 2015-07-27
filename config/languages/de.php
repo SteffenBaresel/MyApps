@@ -18,8 +18,9 @@ $lang['add-button'] 		= 'App anlegen';
 $lang['del-button'] 		= 'Apps bearbeiten';
 $lang['edit-button'] 		= 'Bearbeiten';
 $lang['rem-button'] 		= 'Entfernen';
-$lang['close-button'] 		= 'Modus beenden';
+$lang['close-button'] 		= 'Modus beenden & Seite neuladen';
 $lang['title-delete'] 		= 'App Konfigurieren';
 $lang['cancel'] 		= 'Abbrechen';
+$lang['search-app'] 		= 'Suche App ...';
 
 ?>

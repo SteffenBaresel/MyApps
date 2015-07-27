@@ -18,8 +18,9 @@ $lang['add-button'] 		= 'Add app';
 $lang['del-button'] 		= 'Edit app';
 $lang['edit-button'] 		= 'Edit';
 $lang['rem-button'] 		= 'Delete';
-$lang['close-button'] 		= 'Exit mode';
+$lang['close-button'] 		= 'Exit mode & reload page';
 $lang['title-delete'] 		= 'Edit app';
 $lang['cancel'] 		= 'Cancel';
+$lang['search-app'] 		= 'Search app ...';
 
 ?>

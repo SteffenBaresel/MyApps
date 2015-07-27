@@ -74,8 +74,47 @@ if (isset($_GET['method'])) {
 		    }
 		}
 	    }
-	}
+	} 
         echo json_encode($response);
+    } else if ($_GET['method'] == "SEARCH-APP") {
+	if (!($stmt = $conn->prepare("SELECT ID,DSC,URL,ICON FROM MyAppsTable WHERE DSC like ? OR URL like ? ORDER BY DSC ASC"))) {
+            $response["PREPARE"] = '0';
+	    $response["ERRNO"] = $conn->errno;
+	    $response["ERROR"] = $conn->error;
+	} else {
+	    $text = '%'. $_GET['text'] .'%';
+	    if (!$stmt->bind_param("ss", $text, $text)) {
+        	$response["BIND"] = '0';
+		$response["ERRNO"] = $conn->errno;
+		$response["ERROR"] = $conn->error;
+		echo json_encode($response);
+	    } else {
+		if (!$stmt->execute()) {
+		    $response["EXEC"] = '0';
+		    $response["ERRNO"] = $conn->errno;
+		    $response["ERROR"] = $conn->error;
+		    echo json_encode($response);
+		} else {
+		    $out_id = NULL;
+		    $out_dsc = NULL;
+		    $out_url = NULL;
+		    $out_icn = NULL;
+		    if (!$stmt->bind_result($out_id,$out_dsc, $out_url, $out_icn)) {
+			$response["BIND-RESULT"] = '0';
+			$response["ERRNO"] = $conn->errno;
+			$response["ERROR"] = $conn->error;
+			echo json_encode($response);
+		    } else {
+			$apps = "";
+			while($stmt->fetch()) {
+			    $apps.= "{\"AID\":". json_encode($out_id) .",\"ADSC\":". json_encode($out_dsc) .",\"AURL\":". json_encode($out_url) .",\"AIPT\":". json_encode($out_icn) ."},";
+			}
+			$apps = substr_replace($apps, "", -1);
+			echo "{\"TITLE\":\"". $lang['title-delete'] ."\",\"APPS\":[". $apps ."]}";
+		    }
+		}
+	    }
+	}
     }
 } else {
 
